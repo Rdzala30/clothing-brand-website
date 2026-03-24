@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-background: #0e0e0e;
+    --color-surface: #0e0e0e;
+    --color-surface-container: #191a1a;
+    --color-surface-container-high: #1f2020;
+    --color-surface-container-highest: #252626;
+    --color-surface-container-low: #131313;
+    --color-surface-bright: #2c2c2c;
+    --color-primary: #c6c6c8;
+    --color-primary-container: #454749;
+    --color-secondary: #b69973;
+    --color-on-surface: #e7e5e4;
+    --color-on-surface-variant: #acabaa;
+    --color-outline-variant: #484848;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #0e0e0e;
+    color: #e7e5e4;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: #b69973;
+    color: #2d1d03;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0e0e0e;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #484848;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #b69973;
+  }
+}
+
+@layer components {
+  .font-serif {
+    font-family: 'Noto Serif', Georgia, serif;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-8 py-4 bg-secondary text-on-secondary font-sans font-medium text-sm tracking-widest uppercase transition-all duration-300;
+  }
+
+  .btn-primary:hover {
+    @apply bg-opacity-90;
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-8 py-4 border border-outline-variant text-primary font-sans font-medium text-sm tracking-widest uppercase transition-all duration-300;
+  }
+
+  .btn-ghost:hover {
+    @apply border-secondary text-secondary;
+  }
+
+  .label-tag {
+    @apply font-sans text-xs tracking-widest uppercase text-on-surface-variant;
+  }
+
+  .section-pad {
+    @apply px-6 md:px-12 lg:px-20;
+  }
+
+  .glass-nav {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgba(25, 26, 26, 0.75);
+  }
+
+  .tonal-card {
+    background: #191a1a;
+    transition: background 0.3s ease;
+  }
+
+  .tonal-card:hover {
+    background: #1f2020;
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 30s linear infinite;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .lookbook-enter {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  .lookbook-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+}
